@@ -1,0 +1,18 @@
+setwd("D:/GitHub/MR/")
+library(TwoSampleMR)
+library(dplyr)
+library(tidyr)
+library(readr)
+library(openxlsx)
+library(stringr)
+library(data.table)
+JAK1 <- read.csv("JAK1_5e-0x_freq_Fstat.csv",header = T)
+JAK3 <- read.csv("JAK3_5e-0x_freq_Fstat.csv",header = T)
+F2 <- function(JAK){
+  JAK = mutate(JAK,R2_new = 2*eaf*(1-eaf)*(beta^2))
+  JAK = mutate(JAK,F2=(R2_new*(samplesize-2))/(1-R2_new))
+  JAK = dplyr::filter(JAK,F2 > 10)
+  return(JAK)
+}
+JAK1_N <- F2(JAK1)
+JAK3_N <- F2(JAK3)

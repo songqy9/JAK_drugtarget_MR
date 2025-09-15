@@ -1,0 +1,5 @@
+# shieve JAK cis-eQTL
+# reference https://blog.csdn.net/fujian9544/article/details/106243228
+awk '$9 ~ /JAK1/ {print $0}' 2019-12-11-cis-eQTLsFDR-ProbeLevel-CohortInfoRemoved-BonferroniAdded.txt > JAK1.txt
+awk '$9 ~ /JAK2/ {print $0}' 2019-12-11-cis-eQTLsFDR-ProbeLevel-CohortInfoRemoved-BonferroniAdded.txt > JAK2.txt
+awk '$9 ~ /TYK2/ {print $0}' 2019-12-11-cis-eQTLsFDR-ProbeLevel-CohortInfoRemoved-BonferroniAdded.txt > TYK2.txt

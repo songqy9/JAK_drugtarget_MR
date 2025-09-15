@@ -1,0 +1,34 @@
+##myquery to BESD
+./smr-1.3.1 --qfile data/JAK1_myquery.txt --make-besd --out data/JAK1_mybesd
+./smr-1.3.1 --qfile data/JAK2_myquery.txt --make-besd --out data/JAK2_mybesd
+./smr-1.3.1 --qfile data/JAK3_myquery.txt --make-besd --out data/JAK3_mybesd
+# ./smr-1.3.1 --qfile data/TYK2_myquery.txt --make-besd --out data/TYK2_mybesd
+./smr-1.3.1 --qfile data/TYK2_Stroke_myquery.txt --make-besd --out data/TYK2_Stroke_mybesd
+./smr-1.3.1 --qfile data/TYK2_CAD_myquery.txt --make-besd --out data/TYK2_CAD_mybesd
+##SMR analysis
+
+#stroke susceptibility smr
+./smr-1.3.1 --bfile 1000G.EUR.QC/1000G.EUR.QC.1 --gwas-summary data/stroke_mygwas.ma --beqtl-summary data/JAK1_mybesd --maf 0.01 --out data/JAK1_smr --thread-num 10 --diff-freq-prop 1
+./smr-1.3.1 --bfile 1000G.EUR.QC/1000G.EUR.QC.9 --gwas-summary data/stroke_mygwas.ma --beqtl-summary data/JAK2_mybesd --maf 0.01 --out data/JAK2_smr --thread-num 10 --diff-freq-prop 1
+./smr-1.3.1 --bfile 1000G.EUR.QC/1000G.EUR.QC.19 --gwas-summary data/stroke_mygwas.ma --beqtl-summary data/JAK3_mybesd --maf 0.01 --out data/JAK3_smr --thread-num 10 --diff-freq-prop 1
+./smr-1.3.1 --bfile 1000G.EUR.QC/1000G.EUR.QC.19 --gwas-summary data/stroke_mygwas.ma --beqtl-summary data/TYK2_mybesd --maf 0.01 --out data/TYK2_smr --thread-num 10 --diff-freq-prop 1
+
+
+
+#stroke multi-smr
+./smr-1.3.1 --bfile 1000G.EUR.QC/1000G.EUR.QC.1 --gwas-summary data/stroke_mygwas.ma --beqtl-summary data/JAK1_mybesd --maf 0.01 --out data/JAK1_Msmr --thread-num 10 --diff-freq-prop 1 --smr-multi --ld-multi-snp 0.3
+./smr-1.3.1 --bfile 1000G.EUR.QC/1000G.EUR.QC.9 --gwas-summary data/stroke_mygwas.ma --beqtl-summary data/JAK2_mybesd --maf 0.01 --out data/JAK2_Msmr --thread-num 10 --diff-freq-prop 1 --smr-multi --ld-multi-snp 0.3
+./smr-1.3.1 --bfile 1000G.EUR.QC/1000G.EUR.QC.19 --gwas-summary data/stroke_mygwas.ma --beqtl-summary data/JAK3_mybesd --maf 0.01 --out data/JAK3_Msmr --thread-num 10 --diff-freq-prop 1 --smr-multi --ld-multi-snp 0.3
+# ./smr-1.3.1 --bfile 1000G.EUR.QC/1000G.EUR.QC.19 --gwas-summary data/stroke_mygwas.ma --beqtl-summary data/TYK2_mybesd --maf 0.01 --out data/TYK2_Msmr --thread-num 10 --diff-freq-prop 1 --smr-multi --ld-multi-snp 0.3
+./smr-1.3.1 --bfile 1000G.EUR.QC/1000G.EUR.QC.19 --gwas-summary data/stroke_mygwas.ma --beqtl-summary data/TYK2_Stroke_mybesd --maf 0.01 --out data/TYK2_Stroke_Msmr --thread-num 10 --diff-freq-prop 1 --smr-multi --ld-multi-snp 0.3
+
+
+
+#CAD susceptibility multi-smr
+# set permission
+chmod 777 data/CAD_mygwas.ma 
+./smr-1.3.1 --bfile 1000G.EUR.QC/1000G.EUR.QC.1 --gwas-summary data/CAD_mygwas.ma --beqtl-summary data/JAK1_mybesd --maf 0.01 --out data/JAK1_CAD_Msmr --thread-num 10 --diff-freq-prop 1 --smr-multi --ld-multi-snp 0.3
+./smr-1.3.1 --bfile 1000G.EUR.QC/1000G.EUR.QC.9 --gwas-summary data/CAD_mygwas.ma --beqtl-summary data/JAK2_mybesd --maf 0.01 --out data/JAK2_CAD_Msmr --thread-num 10 --diff-freq-prop 1 --smr-multi --ld-multi-snp 0.3
+./smr-1.3.1 --bfile 1000G.EUR.QC/1000G.EUR.QC.19 --gwas-summary data/CAD_mygwas.ma --beqtl-summary data/JAK3_mybesd --maf 0.01 --out data/JAK3_CAD_Msmr --thread-num 10 --diff-freq-prop 1 --smr-multi --ld-multi-snp 0.3
+# ./smr-1.3.1 --bfile 1000G.EUR.QC/1000G.EUR.QC.19 --gwas-summary data/CAD_mygwas.ma --beqtl-summary data/TYK2_mybesd --maf 0.01 --out data/TYK2_CAD_Msmr --thread-num 10 --diff-freq-prop 1 --smr-multi --ld-multi-snp 0.3
+./smr-1.3.1 --bfile 1000G.EUR.QC/1000G.EUR.QC.19 --gwas-summary data/CAD_mygwas.ma --beqtl-summary data/TYK2_CAD_mybesd --maf 0.01 --out data/TYK2_CAD_Msmr --thread-num 10 --diff-freq-prop 1 --smr-multi --ld-multi-snp 0.3
