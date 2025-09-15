@@ -1,0 +1,3 @@
+SNP,effect_allele.exposure,other_allele.exposure,beta.exposure,beta.outcome,ratio,name_col
+rs1122385,C,T,0.0473597295363008,-4.13622e-05,-0.000873362251114552,JAK3_CAD
+rs11888,C,T,0.0498447866594977,-9.35014e-05,-0.00187585114244207,JAK3_CAD

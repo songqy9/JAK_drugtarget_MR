@@ -1,0 +1,3 @@
+SNP,effect_allele.exposure,other_allele.exposure,beta.exposure,beta.outcome,ratio,name_col
+rs10789166,G,A,-0.0496953826918528,0.000598181,-0.0120369532861665,JAK1_stroke
+rs74942083,T,C,-0.0689218783480006,0.000798687,-0.0115882941548294,JAK1_stroke
